@@ -14,7 +14,7 @@ export default function Hero() {
     <section
       data-testid="hero-section"
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden bg-deep-olive text-ivory min-h-[640px] md:min-h-[85vh] lg:min-h-[92vh] flex items-center"
+      className="relative isolate overflow-hidden bg-deep-olive text-ivory min-h-[560px] md:min-h-[72vh] lg:min-h-[80vh] flex items-center"
     >
       {/* Decorative turmeric arc — no founder asset yet, so we hand-draw the mood.
           aria-hidden because the H1 carries the message. */}

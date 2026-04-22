@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Mehfil Nights — Design System v3 (April 2026)
+   Official brand guidelines. All color, type, and spacing tokens live here.
+   60-30-10 rule: 60% ivory, 30% deep-olive + sage, 10% saffron + turmeric.
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary — Cultural Roots */
+  --color-saffron: #C17817;      /* Donate CTA ONLY */
+  --color-deep-olive: #2C3A2E;   /* Dark sections, nav, "night" moments */
+  --color-turmeric: #D4A843;     /* Events, tickets, logo accent */
+  --color-sage: #7A9A7E;         /* Impact, mission, growth */
+
+  /* Secondary — Universal Trust */
+  --color-ivory: #F5F0E8;        /* Primary background */
+  --color-warm-white: #FDFAF5;   /* Grant/report pages */
+  --color-trust-teal: #3B7A7A;   /* Links, info actions */
+  --color-sand: #E6DCCB;         /* Card backgrounds */
+  --color-henna: #8B4A2B;        /* Hover / dark accent */
+  --color-sage-muted: #A8BFA9;   /* Secondary text on dark */
+  --color-clay: #B89B7E;         /* Borders, soft accents */
+  --color-linen: #EDE6DA;        /* Section backgrounds */
+  --color-calm-blue: #4A6FA5;    /* Supplemental trust */
+
+  /* Neutrals */
+  --color-charcoal: #2B2B2B;
+  --color-dark-text: #3A3632;
+  --color-body-text: #5C564F;
+  --color-muted: #918A82;
+  --color-light-line: #DDD5C8;
+  --color-white: #FFFFFF;
 }
 
+/* Expose tokens to Tailwind v4 as utility classes (bg-saffron, text-ivory, etc.) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Cultural */
+  --color-saffron: var(--color-saffron);
+  --color-deep-olive: var(--color-deep-olive);
+  --color-turmeric: var(--color-turmeric);
+  --color-sage: var(--color-sage);
+
+  /* Trust */
+  --color-ivory: var(--color-ivory);
+  --color-warm-white: var(--color-warm-white);
+  --color-trust-teal: var(--color-trust-teal);
+  --color-sand: var(--color-sand);
+  --color-henna: var(--color-henna);
+  --color-sage-muted: var(--color-sage-muted);
+  --color-clay: var(--color-clay);
+  --color-linen: var(--color-linen);
+  --color-calm-blue: var(--color-calm-blue);
+
+  /* Neutrals */
+  --color-charcoal: var(--color-charcoal);
+  --color-dark-text: var(--color-dark-text);
+  --color-body-text: var(--color-body-text);
+  --color-muted: var(--color-muted);
+  --color-light-line: var(--color-light-line);
+
+  /* Typography — wired from next/font/google CSS variables on <html> */
+  --font-display: var(--font-display);
+  --font-accent: var(--font-accent);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+
+  /* Spacing — 8px grid per v3 spec.
+     Tailwind v4 default scale covers 0.25rem steps; these named tokens
+     make the spec's semantic spacing (xs/sm/md/lg/xl/2xl/3xl) first-class. */
+  --spacing-xs: 0.5rem;    /* 8px  */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+  --spacing-3xl: 5rem;     /* 80px — default section vertical rhythm */
+
+  /* Radii per spec */
+  --radius-card: 0.75rem;  /* 12px — cards */
+  --radius-btn: 0.375rem;  /* 6px  — buttons */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================================
+   Base layer
+   ========================================================================== */
+
+html {
+  /* Prevent horizontal scroll on narrow viewports */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-body-text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-dark-text);
+  font-family: var(--font-display), Georgia, serif;
+  line-height: 1.2;
+}
+
+/* Skip-to-content link — visible only on keyboard focus */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-deep-olive);
+  color: var(--color-ivory);
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0 0 0.375rem 0;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  outline: 2px solid var(--color-turmeric);
+  outline-offset: 2px;
+}
+
+/* Universal focus ring — WCAG 2.1 AA */
+:focus-visible {
+  outline: 2px solid var(--color-trust-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

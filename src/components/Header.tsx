@@ -2,8 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Container from "./Container";
 import Button from "./Button";
+
+/**
+ * isActiveRoute — treats "/events/[slug]" and "/events" as both under "Events",
+ * so a visitor on an event detail page still sees the Events link highlighted.
+ */
+function isActiveRoute(pathname: string | null, href: string): boolean {
+  if (!pathname) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 /**
  * Header — sticky top nav.
@@ -25,6 +36,7 @@ const NAV_LINKS: NavLink[] = [
 
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   // Close the mobile panel on Escape for accessibility.
   useEffect(() => {
@@ -69,16 +81,25 @@ export default function Header() {
           data-testid="main-nav"
           className="hidden md:flex items-center gap-8"
         >
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              data-testid={`nav-link-${link.label.toLowerCase()}`}
-              className="font-body text-[14px] font-semibold tracking-[0.5px] text-dark-text hover:text-trust-teal transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = isActiveRoute(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-testid={`nav-link-${link.label.toLowerCase()}`}
+                aria-current={active ? "page" : undefined}
+                className={[
+                  "font-body text-[14px] font-semibold tracking-[0.5px] transition-colors",
+                  active
+                    ? "text-henna underline underline-offset-[6px] decoration-turmeric decoration-2"
+                    : "text-dark-text hover:text-trust-teal",
+                ].join(" ")}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop Donate — saffron (reserved for donation only) */}
@@ -119,17 +140,26 @@ export default function Header() {
         >
           <Container className="py-8">
             <nav aria-label="Mobile" className="flex flex-col gap-6">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-testid={`mobile-nav-link-${link.label.toLowerCase()}`}
-                  onClick={() => setIsMobileOpen(false)}
-                  className="font-body text-lg font-semibold text-dark-text hover:text-trust-teal transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const active = isActiveRoute(pathname, link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    data-testid={`mobile-nav-link-${link.label.toLowerCase()}`}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setIsMobileOpen(false)}
+                    className={[
+                      "font-body text-lg font-semibold transition-colors",
+                      active
+                        ? "text-henna underline underline-offset-[6px] decoration-turmeric decoration-2"
+                        : "text-dark-text hover:text-trust-teal",
+                    ].join(" ")}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <div className="pt-4">
                 <Button
                   href="/donate"

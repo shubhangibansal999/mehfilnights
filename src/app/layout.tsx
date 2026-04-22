@@ -42,6 +42,42 @@ export const metadata: Metadata = {
 };
 
 /* -------------------------------------------------------------------------- */
+/*  Global JSON-LD — NonprofitOrganization                                    */
+/*  Runs on every page for grant reviewers' schema scrapers + Google KG.      */
+/* -------------------------------------------------------------------------- */
+
+const SITE_URL = "https://mehfilnights.org";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  name: "Mehfil Nights",
+  url: SITE_URL,
+  /* TODO(founder): drop a real logo at /public/logo.png (square, min 200×200). */
+  logo: `${SITE_URL}/logo.png`,
+  description:
+    "Seattle-based 501(c)(3) nonprofit building community through intimate South Asian live music — supporting independent artists, honoring a centuries-old tradition, and keeping ticket prices accessible.",
+  address: {
+    "@type": "PostalAddress",
+    /* TODO(founder): provide real street address (PO Box OK). */
+    addressLocality: "Seattle",
+    addressRegion: "WA",
+    addressCountry: "US",
+  },
+  email: "hello@mehfilnights.org",
+  /* TODO(founder): verify each social URL exists. */
+  sameAs: [
+    "https://instagram.com/mehfilnights",
+    "https://facebook.com/mehfilnights",
+    "https://linkedin.com/company/mehfilnights",
+    "https://youtube.com/@mehfilnights",
+  ],
+  /* TODO(founder): populate taxID with real EIN before launch. */
+  taxID: "XX-XXXXXXX",
+  nonprofitStatus: "Nonprofit501c3",
+};
+
+/* -------------------------------------------------------------------------- */
 /*  Root layout                                                               */
 /* -------------------------------------------------------------------------- */
 
@@ -63,6 +99,17 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content" data-testid="skip-to-content">
           Skip to content
         </a>
+
+        {/* Global NonprofitOrganization JSON-LD — surfaces on every page for
+            schema scrapers used by grant reviewers and Google's Knowledge
+            Graph. See PRD §4. */}
+        <script
+          type="application/ld+json"
+          data-testid="organization-jsonld"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
 
         <Header />
 

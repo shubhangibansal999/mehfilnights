@@ -89,17 +89,20 @@ export default function Hero() {
             Pacific Northwest.
           </p>
 
-          {/* CTAs: Saffron (soft donate ask) + Turmeric (events).
-              Saffron first in DOM order per spec accessibility note. */}
+          {/* CTAs: Turmeric (events) + Teal (learn more).
+              Saffron is reserved for the DonateBand at the bottom of the page
+              and for the two buttons on /donate — preserving scarcity across
+              the whole site (Header + DonateBand + /donate hero + /donate
+              closer = 4 total Saffron instances site-wide). */}
           <div
             data-testid="hero-cta-row"
             className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
-            <Button href="/donate" variant="saffron" size="md">
-              Support Our Mission
-            </Button>
             <Button href="/events" variant="turmeric" size="md">
               See Upcoming Events →
+            </Button>
+            <Button href="/about" variant="teal" size="md">
+              Read Our Story
             </Button>
           </div>
         </div>

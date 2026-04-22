@@ -2,8 +2,15 @@
 
 import { type FormEvent, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Container from "./Container";
 import Button from "./Button";
+
+function isActiveRoute(pathname: string | null, href: string): boolean {
+  if (!pathname) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 /**
  * Footer — "dark intimate moment" per v3 spec.
@@ -30,6 +37,7 @@ const SOCIAL_LINKS: { href: string; label: string }[] = [
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const pathname = usePathname();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,17 +70,26 @@ export default function Footer() {
               Explore
             </h2>
             <ul className="flex flex-col gap-3">
-              {SITEMAP.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    data-testid={`footer-link-${item.label.toLowerCase()}`}
-                    className="text-ivory hover:text-turmeric transition-colors text-[15px]"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {SITEMAP.map((item) => {
+                const active = isActiveRoute(pathname, item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      data-testid={`footer-link-${item.label.toLowerCase()}`}
+                      aria-current={active ? "page" : undefined}
+                      className={[
+                        "transition-colors text-[15px]",
+                        active
+                          ? "text-turmeric font-semibold"
+                          : "text-ivory hover:text-turmeric",
+                      ].join(" ")}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 

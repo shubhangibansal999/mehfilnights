@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import CountUp from "./CountUp";
 
 /**
  * Impact Snapshot — 4 large Sage-green numbers on Ivory.
@@ -78,7 +79,7 @@ export default function ImpactSnapshot() {
                 data-testid={`impact-stat-value-${i}`}
                 className="font-display text-sage text-[44px] md:text-[56px] leading-[1.05] mb-2"
               >
-                {stat.value}
+                <CountUp value={stat.value} />
               </p>
               <p className="font-body font-semibold text-[14px] uppercase tracking-[0.8px] text-deep-olive mb-2">
                 {stat.label}

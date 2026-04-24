@@ -15,8 +15,8 @@ import { getUpcomingEvents, getPastEvents } from "@/lib/events";
  *
  * ============================================================================
  * TODO(founder) placeholders on this page:
- *   - Replace src/lib/events.ts placeholder data with real events
- *     once Sanity Event schema is wired in Phase 1 (PRD §10).
+ *   - Real events — add to src/lib/events.ts (see the workflow comment at the
+ *     top of that file). Tickets link to GoDaddy product pages.
  *   - Per-event hero images (currently falling back to the Turmeric-glyph
  *     placeholder on Deep Olive).
  *   - Past-event count (Saloni spec §2.3: "XX Mehfils since 2020").

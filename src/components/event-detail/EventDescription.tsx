@@ -5,8 +5,8 @@ import Section from "@/components/Section";
  * EventDescription — prose-only long-form on Ivory.
  * 780px reading width. No section heading (prose flows from the hero H1).
  *
- * For v1, `longDescription` is a plain-text string with paragraph breaks on
- * "\n\n". When Sanity lands in Phase 1, swap for a Portable Text renderer.
+ * `longDescription` is a plain-text string with paragraph breaks on "\n\n".
+ * Edit the longDescription field in src/lib/events.ts to change event copy.
  */
 
 export default function EventDescription({

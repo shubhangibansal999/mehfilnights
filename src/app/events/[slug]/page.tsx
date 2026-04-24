@@ -25,8 +25,8 @@ import { buildEventJsonLd } from "@/lib/event-schema";
  *
  * ============================================================================
  * TODO(founder) placeholders on this page:
- *   - Event data (all fields) is hardcoded in src/lib/events.ts until the
- *     Sanity Event schema lands in Phase 1 (PRD §10).
+ *   - Event data lives in src/lib/events.ts — edit there to add/update events.
+ *     Tickets are sold on mehfilnights.com (GoDaddy); ticketUrl links out.
  *   - Per-event hero images.
  *   - Richer Artist schema is v2 (EventArtists currently shows names only).
  *   - For past events: photo-gallery integration (currently "See Photos"

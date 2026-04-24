@@ -57,7 +57,7 @@ export default function PastEventsArchive({
             data-testid="past-events-counter"
             className="font-body font-semibold text-[14px] text-turmeric text-center md:text-right"
           >
-            {/* TODO(founder): confirm total past-event count once Sanity is wired. */}
+            {/* TODO(founder): confirm total past-event count when real events are added. */}
             {total} Mehfil{total === 1 ? "" : "s"} since 2020
           </p>
         </div>

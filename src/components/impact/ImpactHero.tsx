@@ -37,8 +37,8 @@ export default function ImpactHero() {
             data-testid="impact-hero-body"
             className="font-body text-[17px] text-ivory/90 leading-[1.8] max-w-[640px]"
           >
-            {/* TODO(founder): numbers in [brackets] populate from real counts
-                once Sanity ImpactStat content is wired (PRD §10). */}
+            {/* TODO(founder): confirm/update these numbers — they are
+                hardcoded in this file. Edit to change. */}
             Since 2020, Mehfil Nights has hosted 48 events, platformed 45
             independent South Asian artists, and welcomed 2,400+ neighbors
             through our rooms. The data below is the full picture — updated

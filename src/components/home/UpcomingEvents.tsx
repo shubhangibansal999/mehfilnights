@@ -8,12 +8,10 @@ import { getUpcomingEvents } from "@/lib/events";
  * Upcoming Events — Deep Olive section with 3 Sand-colored event cards.
  * Second "night moment" on the homepage, deliberate mood shift.
  *
- * Event data now lives in `src/lib/events.ts` and is shared with both
- * /events (full list) and /events/[slug] (detail). The card itself is the
- * shared `<EventCard />` — parent background and `variant` prop differ only.
- *
- * TODO(phase-1): swap `getUpcomingEvents(3)` for a Sanity query when the
- * Event schema lands (per PRD §10).
+ * Event data lives in `src/lib/events.ts` (no CMS) — see the workflow
+ * comment at the top of that file. Tickets are sold on mehfilnights.com
+ * (GoDaddy) and the "Get Tickets" CTA on each card links out to the
+ * GoDaddy product page. Same data powers /events and /events/[slug].
  */
 export default function UpcomingEvents() {
   const events = getUpcomingEvents(3);

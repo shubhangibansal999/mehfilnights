@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 /**
  * EventArtists — v1 simplified (artist names only).
  * Per Saloni §3.3: a full ArtistCard with photos + bios + links is v2 content
- * once a proper Artist Sanity schema lands. For v1, we render a single
+ * when a richer artist pattern is needed. For v1, we render a single
  * horizontal italic list with a transparency line about the v2 upgrade.
  */
 
@@ -37,8 +37,8 @@ export default function EventArtists({ artists }: { artists: string[] }) {
           {artists.join(", ")}.
         </p>
         <p className="font-body text-[14px] text-muted italic mt-6">
-          {/* TODO(phase-2 follow-up): expand into full ArtistCards once the
-              Sanity Artist schema lands. */}
+          {/* TODO(v2 follow-up): expand into full ArtistCards when a richer
+              artist profile pattern is desired. */}
           Full artist bios coming soon.
         </p>
       </Container>

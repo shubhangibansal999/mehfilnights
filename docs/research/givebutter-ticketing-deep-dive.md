@@ -156,6 +156,90 @@ Yes, ticket buyers see a "Would you like to tip Givebutter?" prompt at checkout.
 
 ---
 
+## 6. Ticket Bundles — Can we sell "Party of 4" packages?
+
+*(Added 2026-04-24 — follow-up founder question about bundle strategy to drive group sales.)*
+
+### Can you create a bundle of 4 tickets for a Party of 4?
+
+**✅ YES — natively supported.**
+
+You create a separate ticket type (e.g. "Party of 4", "Family Bundle", "Group of 4") at whatever price you want. Buyers click that one ticket type and receive 4 admissions in a single transaction. Common for galas, community events, and family-oriented programming.
+
+**Strategic framing:** Set the bundle price BELOW the individual-ticket total to create a visible "saving" and drive group conversion.
+
+- 4 individual tickets × $25 = $100 face value
+- "Party of 4" bundle at $85 → buyer sees "save $15" → higher close rate
+- Optional upsell layer: include a perk ("reserved seating", "first drink on us") to make the bundle feel richer
+
+### Can you put a promo code on a ticket bundle later?
+
+**❌ NO — this is a known Givebutter limitation.**
+
+Promo codes **do not apply** to bundle ticket types. This is the single real constraint on the bundle strategy.
+
+Source: [Givebutter Help: How to use promo codes](https://help.givebutter.com/en/articles/2799365-how-to-use-promo-codes) — promo codes apply per ticket type; bundle tickets (those that sell multi-admit as a single SKU) are excluded.
+
+### Workarounds — 3 ways to subsidize bundles without promo codes
+
+Since you can't promo-code a bundle, you achieve "bundle discounts" via **ticket-type configuration** and **time windows**:
+
+**Option A — Pre-discount the bundle (simplest, recommended default)**
+
+Just price the bundle below face value from day 1. The bundle IS the subsidy.
+
+- Individual ticket: $25
+- "Party of 4" bundle: $85 ($15 off built-in)
+- No promo code needed; the savings story is in the bundle name
+
+**Option B — Time-limited discounted bundle variants**
+
+Create multiple ticket types that come and go, using quantity caps (natively supported) or manual toggling for date-range (minor friction):
+
+- "Early Bird Party of 4" at $75, cap = first 10 sales
+- "Regular Party of 4" at $85, unlocks after early-bird fills
+- When the early-bird cap hits, Givebutter auto-hides it
+
+**Option C — Promo on individuals, not bundles, during site-wide promos**
+
+If you later run a "20% off all tickets" promo week, the code applies to individual ticket types only. Bundle buyers still get the pre-set bundle price. Two parallel deals running in parallel.
+
+**Trade-off to know:** Bundle buyers during a promo week don't stack promo on top of bundle. Communicate this clearly ("Promo does not stack with bundles — choose whichever saves you more") OR during promo weeks, temporarily hide the bundle to push everyone to individual-ticket purchase.
+
+### Recommended pattern for Mehfil: tiered bundles, no promo codes
+
+Build group discounts directly into pricing from day 1 via a ladder of bundle types. This makes promos unnecessary for bundle-style savings.
+
+| Ticket Type | Price | Effective per-person |
+|---|---|---|
+| Individual | $25 | $25 |
+| Duo ("Bring a friend") | $45 | $22.50 |
+| Party of 4 | $85 | $21.25 |
+| Community Table (8) | $160 | $20 |
+
+Benefits:
+- Attendees self-select group size, see per-person savings transparently
+- No promo code machinery needed for group discounts
+- Clean pricing story for marketing: "Bring more friends, save more per person"
+- Frees up the promo-code system for true one-off campaigns (Diwali week, birthday week, giving Tuesday) on **individual** tickets only
+
+### Bundle-strategy FAQ
+
+| Question | Answer |
+|---|---|
+| Can I create a "Party of 4" bundle? | ✅ Yes, native |
+| Can I put a percent-off promo code on the bundle later? | ❌ No (Givebutter limitation) |
+| Can I pre-discount the bundle at the time of creation? | ✅ Yes, price it however you want |
+| Can I time-limit the bundle (e.g., early-bird)? | ✅ Via quantity cap; ⚠️ date cap is manual toggle |
+| Can I stack a bundle with a site-wide promo? | ❌ No |
+| Is this a reason to pick Eventbrite over Givebutter? | ❌ No — Eventbrite has the same bundle-vs-promo limitation |
+
+### Bottom line on bundles
+
+**This limitation does not change the Givebutter recommendation.** The tiered-bundle pattern above gives you a better pricing strategy than promo-code gymnastics anyway. Pre-set bundle pricing is cleaner, more transparent to buyers, and reduces operational complexity compared to running time-limited promo campaigns on bundles.
+
+---
+
 ## Final Answer
 
 **Yes, Givebutter is good enough for Mehfil Nights' ticketing.** It's the cheapest option tested, has legitimate QR check-in via a free mobile app, and supports every payment method a Seattle arts audience expects.

@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Static export build folder — regenerate with `npm run build`
+/out
+
 # Sanity (will be added later)
 .sanity/
 

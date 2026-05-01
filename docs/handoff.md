@@ -30,9 +30,16 @@ This is a git repo connected to `https://github.com/shubhangibansal999/mehfilnig
 
 ## Live site
 
-**URL:** https://mehfilnightsvercel.vercel.app/
+🟡 **Currently un-hosted.** The Vercel deployment was deleted on 2026-04-24 to reduce platform footprint.
 
-Auto-deploys from `main` branch on every push (~60 seconds end-to-end).
+The code is fully preserved on GitHub. To re-host (any of these takes ~60 seconds because the repo is ready to deploy):
+- **Vercel** (re-import) — same as before
+- **Netlify** — drop-in equivalent
+- **Cloudflare Pages** — free tier
+- **GoDaddy cPanel** — via `next build && next export` for static-only hosting
+- **Any Node.js host** — DigitalOcean, Linode, Render, etc.
+
+Local dev still works fine: `cd "/Users/shubhangihome/Documents/Claude/Mehfil Code" && npm run dev` → http://localhost:3000
 
 ---
 
@@ -42,7 +49,7 @@ Auto-deploys from `main` branch on every push (~60 seconds end-to-end).
 |---|---|---|
 | **GoDaddy** | Domain registrar (`mehfilnights.org`) + commercial event ticket products on `.com` | ✅ |
 | **GitHub** | Source of truth for site code | ✅ Auth set up via PAT in macOS Keychain |
-| **Vercel** | Hosts the .org Next.js site, auto-deploys on push | ✅ Connected to GitHub repo |
+| **Vercel** | (Was hosting the .org Next.js site) | 🔻 Deleted 2026-04-24 — re-host anywhere when ready |
 | **Mailchimp** | Email list / newsletter | 🟡 Account exists, not yet wired into the site |
 | **PayPal** | Donation processing | 🟡 Existing account, not yet wired into the site |
 
@@ -139,8 +146,8 @@ Includes: EIN (×6), impact numbers, founder name + title, partner logo images, 
 
 Pick ONE based on the founder's intent in the new session:
 
-### Path A — GoDaddy DNS cutover
-Point `mehfilnights.org` from current redirect-to-.com to **Vercel**. Steps: log into GoDaddy DNS settings, change A record + CNAME to Vercel's values (Vercel dashboard provides exact values per domain), wait ~10-30 min for propagation, verify on `https://mehfilnights.org`. Vercel handles SSL automatically. Keep mehfilnights.com alive (don't break it).
+### Path A — Re-host the site (Vercel deleted 2026-04-24)
+Pick a host and re-deploy. Vercel re-import is the fastest (1 click — connect the GitHub repo, click Deploy, get a new `.vercel.app` URL within 60 seconds). Other equivalent hosts: Netlify, Cloudflare Pages. After deploy works, optionally point `mehfilnights.org` DNS at the new host (currently `.org` redirects to `.com`).
 
 ### Path B — Set up Givebutter (or Zeffy) for ops
 Founder creates account, shares project ID + API/embed credentials, dev wires donation button + ticketing on /donate page. ~2 hours.

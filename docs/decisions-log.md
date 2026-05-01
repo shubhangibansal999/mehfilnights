@@ -32,6 +32,7 @@ Last updated: 2026-04-24
 | 6 | .com vs .org | **Currently .org redirects to .com. After v1 launch: flip so .com redirects to .org; .org becomes primary.** | DNS cutover happens in Week 3. Mehfilnights.com stays alive as a simple redirect. |
 | 7 | CMS (added 2026-04-24) | **No CMS** | Dropped Sanity. Content edited in code files (src/lib/events.ts for events, component files for copy). Revisit in v2 if pain point. |
 | 8 | Events management (added 2026-04-24) | **Tickets on GoDaddy, summaries on .org** | Events remain products on mehfilnights.com. .org /events page shows event summaries; "Get Tickets" CTAs link out to GoDaddy product URLs. |
+| 9 | Hosting (added 2026-04-24) | **Vercel deployment deleted; code stays on GitHub** | Founder paused hosting to reduce platform footprint while finalizing operations-platform decision (Givebutter vs Zeffy vs Donorbox). Code remains fully portable — re-host on Vercel/Netlify/Cloudflare/etc in ~60 seconds when ready. |
 
 ---
 
